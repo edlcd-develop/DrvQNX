@@ -1,0 +1,26 @@
+#ifndef _GEN4S_DEFS_H
+#define _GEN4S_DEFS_H
+
+
+#define GEN4S_CHANNELS_PER_BOARD    8
+#define GEN4S_CHANNELS_PER_BOARD_NU 4
+#define GEN4S_CHANNELS_PER_BOARD_U  4
+
+#define GEN4S_MAX_ADAPTERS 8
+#define GEN4S_MAX_SELECTIONS 0x4000
+#define GEN4S_DEVPATH "/dev/local/gen4s"
+#define GEN4S_DEVNAME "gen4s"
+
+#define GEN4S_BURN                   2
+#define GEN4S_OFFSET_U               4
+#define GEN4S_OFFSET_DIV_MAJOR       6
+#define GEN4S_OFFSET_DIV_MINOR  	 8
+#define GEN4S_OFFSET_FREQ_DIV_MAJOR  10
+#define GEN4S_OFFSET_FREQ_DIV_MINOR  12
+
+#define GEN4S_OFFSET_CHECK 	0x4
+#define GEN4S_MASK_CHECK 	0xFFFF
+#define GEN4S_CODE_CHECK 	0x1104
+#define GEN4S_REG_WINDOW 	16
+
+#endif /* _GEN4S_DEFS_H */

@@ -1,0 +1,17 @@
+#ifndef _DAC16_DEFS_H
+#define _DAC16_DEFS_H
+
+
+#define DAC16_CHANNELS_PER_BOARD 16
+#define DAC16_MAX_ADAPTERS 8
+#define DAC16_MAX_SELECTIONS 0x4000
+#define DAC16_DEVPATH "/dev/local/dac16"
+#define DAC16_DEVNAME "dac16"
+#define DAC16_OFFSET_CH 2
+#define DAC16_OFFSET_VAL 0
+#define DAC16_OFFSET_CHECK 0
+#define DAC16_MASK_CHECK 0x7000
+#define DAC16_CODE_CHECK 0x5000
+#define DAC16_REG_WINDOW 4
+
+#endif /* _DAC16_DEFS_H */
