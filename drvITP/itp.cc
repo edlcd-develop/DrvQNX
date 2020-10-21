@@ -163,7 +163,7 @@ int io_devctl(resmgr_context_t *ctp, io_devctl_t *msg, iofunc_ocb_t *ocb)
         if(ready == true)
         {
         	std::cout<<"ITP is already"<<std::endl;
-
+        	return EOK;
         }
         ready = checkCard(pInst->baseAddr[pInst->numBaseAddr],ITP_OFFSET_CHECK,ITP_MASK_CHECK,ITP_CODE_CHECK);
         pInst->ready[pInst->numBaseAddr] = ready;
