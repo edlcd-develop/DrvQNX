@@ -1,9 +1,9 @@
 //============================================================================
 // Name        : drvDAC16.cc
 // Author      : Gurin Fedor
-// Version     :
+// Version     : 0.1
 // Copyright   : 
-// Description : Hello World in C++, QNX-style
+// Description : Driver for ISA apapter DAC16M
 //============================================================================
 
 #include <cstdlib>

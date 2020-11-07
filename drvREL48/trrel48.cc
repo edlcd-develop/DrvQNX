@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvIR.cc
+// Name        : drvTRREL.cc
 // Author      : Gurin Fedor
-// Version     :
-// Copyright   :
-// Description : Hello World in C++, QNX-style
+// Version     : 0.1
+// Copyright   : 
+// Description : Driver for ISA apapter TRREL 
 //============================================================================
 
 #include <cstdlib>

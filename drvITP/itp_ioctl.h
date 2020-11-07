@@ -3,11 +3,7 @@
 
 #include <devctl.h>
 
-
-//#define ITP_MAGIC 0x7f
-    
+//! IOCTL команда для добавления базового адреса нового устройства ITP  
 #define ITP_IO_ADD_BASE_ADR __DIOT(_DCMD_CHR,  4, uint16_t)
-
-
 
 #endif /* _ITP_IOCTL_H */

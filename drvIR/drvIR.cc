@@ -1,9 +1,9 @@
 //============================================================================
 // Name        : drvIR.cc
 // Author      : Gurin Fedor
-// Version     :
+// Version     : 0.1
 // Copyright   : 
-// Description : Hello World in C++, QNX-style
+// Description : Driver for ISA apapter IR 
 //============================================================================
 
 #include <cstdlib>
