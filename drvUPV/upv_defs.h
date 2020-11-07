@@ -43,28 +43,57 @@
 #define UPV_REG_STATE_M3_AR  24820
 #define UPV_REG_STATE_M4_AR  24821
 
+//! область памяти с выходными каналами ARINC
+#define UPV_REG_OUT_CH 0
+
+//! состояние выходных каналов
+#define UPV_REG_ST_0_11CH  24624
+#define UPV_REG_ST_12_23CH 24625
+#define UPV_REG_ST_24_35CH 24626
+#define UPV_REG_ST_36_47CH 24627
 /*! общее состояние
  * 0 - ожидание запросов настроек мезанинов
  * 1 - запросы мезанинов получены, ожидание заполнения настроек
  * 2 - инициирована настройка
  * 3 - чтение регистров и установка констант
  * 4 - отправка настроечных параметров на мезанины
- * 5 - работчий режим
+ * 5 - рабочий режим
 */
 #define UPV_REG_MAIN_STATE   24822
 
-#define UPV_REG_COUNTER_WORD 24576
+//! кол-во адресов выдваемых по каждому каналу
+#define UPV_REG_OUT_NUM_WORD 24576
 
 //! Начало отображеня слов(адрес + данные)
 #define UPV_REG_START_OUT_AR_WORD 0x0
 //! Участок 32 разрядных слов для выдачи данных
 #define UPV_REG_SIZE_IOMEM_PER_CH 256
 
-//! Начало отображеня слов(адрес + данные)
-#define UPV_REG_START_IN_AR_WORD 12288
-
-//! Начало учатстка памяти с счетчиками обновления данных
+//! начало отображеня слов(адрес + данные)
+#define UPV_REG_START_IN_AR_WORD    12288
+#define UPV_REG_IN_WORD_FLAG        24628
+#define UPV_REG_IN_LAST_WORD_FLAG   24676
+#define UPV_REG_IN_COUNTER_WORD     24724
+#define UPV_REG_OUT_COUNTER_WORD    24771
+//! начало учатстка памяти с счетчиками обновления данных
 #define UPV_REG_FLAG_UPDATE 24676
 
+//! выходные каналы РК по мезонинам
+#define UPV_REG_RK_OUT_M1 24871
+#define UPV_REG_RK_OUT_M2 24872
+#define UPV_REG_RK_OUT_M3 24873
+#define UPV_REG_RK_OUT_M4 24874
+
+//! входные каналы РК по мезонинам
+#define UPV_REG_RK_IN_M1 24875
+#define UPV_REG_RK_IN_M2 24876
+#define UPV_REG_RK_IN_M3 24877
+#define UPV_REG_RK_IN_M4 24878
+
+//! состояние РК
+#define UPV_REG_RK_ST_M1 24879
+#define UPV_REG_RK_ST_M2 24880
+#define UPV_REG_RK_ST_M3 24881
+#define UPV_REG_RK_ST_M4 24882
 
 #endif /* _UPV_DEFS_H */
