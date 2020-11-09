@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvITP.cc
+// Name        : itp.cc
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter ITP 
+// Description : Driver for ISA adapter ITP 
 //============================================================================
 
 #include <cstdlib>

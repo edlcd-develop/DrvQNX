@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvIR.cc
+// Name        : ip.cc
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter IP 
+// Description : Driver for ISA adapter IP 
 //============================================================================
 
 #include <cstdlib>

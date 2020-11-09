@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvGEN4S.cc
+// Name        : drvGen4s.cc
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter GEN4S 
+// Description : Driver for ISA adapter GEN4S 
 //============================================================================
 
 #include <cstdlib>

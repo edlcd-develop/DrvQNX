@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvTRREL.cc
+// Name        : trrel48.cc
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter TRREL 
+// Description : Driver for ISA adapter TRREL 
 //============================================================================
 
 #include <cstdlib>

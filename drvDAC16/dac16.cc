@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvDAC16.cc
+// Name        : dac16.cc
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter DAC16M
+// Description : Driver for ISA adapter DAC16M
 //============================================================================
 
 #include <cstdlib>

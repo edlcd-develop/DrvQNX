@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvGEN4S.cc
+// Name        : upv.cc
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter UPV KL 
+// Description : Driver for PCI-e (1.0) adapter UPV KL 
 //============================================================================
 
 #include <cstdlib>

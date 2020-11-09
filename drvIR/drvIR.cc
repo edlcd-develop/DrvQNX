@@ -3,7 +3,7 @@
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter IR 
+// Description : Driver for ISA adapter IR 
 //============================================================================
 
 #include <cstdlib>
