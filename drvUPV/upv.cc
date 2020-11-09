@@ -256,6 +256,7 @@ int main(int argc, char *argv[])
 
       	  devUpvKl.numAddr ++;
       }
+	  // устройство не загрузилось, требуется выполнить перезагрузку
       if(devUpvKl.numAddr == 0)
     	  system("shutdown -S reboot");
       ctp = dispatch_context_alloc(dpp);
