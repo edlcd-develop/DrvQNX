@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Драйверы для КПДА: Структура trrel48WriteCmd_</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Драйверы для КПДА
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.20 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="structtrrel48_write_cmd__-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Структура trrel48WriteCmd_</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Структура данных для обмена с драйвером устройства REL48.  
+ <a href="structtrrel48_write_cmd__.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="trrel48_8h_source.html">trrel48.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:ad144bc0911eb982727d038f8880e3c04"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtrrel48_write_cmd__.html#ad144bc0911eb982727d038f8880e3c04">startChannel</a></td></tr>
+<tr class="separator:ad144bc0911eb982727d038f8880e3c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e1358a6804464ddfd77fe8b935de9ad"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtrrel48_write_cmd__.html#a5e1358a6804464ddfd77fe8b935de9ad">channelCount</a></td></tr>
+<tr class="separator:a5e1358a6804464ddfd77fe8b935de9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221f7f63d0302a725d45c44b3806406d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtrrel48_write_cmd__.html#a221f7f63d0302a725d45c44b3806406d">values</a> [REL48_CHANNELS_PER_BOARD *REL48_MAX_ADAPTER]</td></tr>
+<tr class="separator:a221f7f63d0302a725d45c44b3806406d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Структура данных для обмена с драйвером устройства REL48. </p>
+</div><h2 class="groupheader">Данные класса</h2>
+<a id="a5e1358a6804464ddfd77fe8b935de9ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e1358a6804464ddfd77fe8b935de9ad">&#9670;&nbsp;</a></span>channelCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned trrel48WriteCmd_::channelCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Кол-ко каналов </p>
+
+</div>
+</div>
+<a id="ad144bc0911eb982727d038f8880e3c04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad144bc0911eb982727d038f8880e3c04">&#9670;&nbsp;</a></span>startChannel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned trrel48WriteCmd_::startChannel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Номер канала с которого буде осуществлена запись/чтение </p>
+
+</div>
+</div>
+<a id="a221f7f63d0302a725d45c44b3806406d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221f7f63d0302a725d45c44b3806406d">&#9670;&nbsp;</a></span>values</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t trrel48WriteCmd_::values[REL48_CHANNELS_PER_BOARD *REL48_MAX_ADAPTER]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Массив значений по указаным каналам </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов структуры находятся в файле:<ul>
+<li>D:/MyProg/IMK226/DrvQNX/drvREL48/<a class="el" href="trrel48_8h_source.html">trrel48.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Драйверы для КПДА: Исходный файл D:/MyProg/IMK226/DrvQNX/drvUPV/upv.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Драйверы для КПДА
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.20 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d003b2010302530d6482129a7dbaa7a9.html">drvUPV</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">upv.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _UPV_IOS_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _UPV_IOS_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;upv_defs.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define NUM_MAX_ADDR_UPV 255</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structupv__write__cmd__.html">    8</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structupv__write__cmd__.html">upv_write_cmd_</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structupv__write__cmd__.html#a46900cc79af4d68c839d58b8d9109c51">   10</a></span>&#160;    uint8_t  <a class="code" href="structupv__write__cmd__.html#a46900cc79af4d68c839d58b8d9109c51">idA</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structupv__write__cmd__.html#ab98f262fc6c718c31ea725223fec0f98">   12</a></span>&#160;    uint64_t <a class="code" href="structupv__write__cmd__.html#ab98f262fc6c718c31ea725223fec0f98">offsetAddr</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structupv__write__cmd__.html#ae9435f097e50a39ee757e9b5f894addd">   14</a></span>&#160;    uint32_t <a class="code" href="structupv__write__cmd__.html#ae9435f097e50a39ee757e9b5f894addd">value</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}<a class="code" href="structupv__write__cmd__.html">upv_write_cmd</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structupv__init__cmd__.html">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structupv__init__cmd__.html">upv_init_cmd_</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structupv__init__cmd__.html#a1ad6d8a53a292d52e7cd8027eea3ab77">   20</a></span>&#160;    uint8_t <a class="code" href="structupv__init__cmd__.html#a1ad6d8a53a292d52e7cd8027eea3ab77">numCh</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    uint8_t io;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    uint8_t lenAddr;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structupv__init__cmd__.html#a7adeb1e524abb35b6ef5bdb745acddef">   24</a></span>&#160;    uint8_t <a class="code" href="structupv__init__cmd__.html#a7adeb1e524abb35b6ef5bdb745acddef">listAddr</a>[NUM_MAX_ADDR_UPV];</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structupv__init__cmd__.html#a7c8b59043531a9acfb8cf81802c3c6d6">   26</a></span>&#160;    uint8_t <a class="code" href="structupv__init__cmd__.html#a7c8b59043531a9acfb8cf81802c3c6d6">typeTrans</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structupv__init__cmd__.html#a2187a43c41960a5e02c6dc319b3551d5">   28</a></span>&#160;    uint8_t <a class="code" href="structupv__init__cmd__.html#a2187a43c41960a5e02c6dc319b3551d5">freq</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}<a class="code" href="structupv__init__cmd__.html">upv_init_cmd</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _UPV_IOS_H */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astructupv__init__cmd___html_a7c8b59043531a9acfb8cf81802c3c6d6"><div class="ttname"><a href="structupv__init__cmd__.html#a7c8b59043531a9acfb8cf81802c3c6d6">upv_init_cmd_::typeTrans</a></div><div class="ttdeci">uint8_t typeTrans</div><div class="ttdoc">тип передачи</div><div class="ttdef"><b>Definition:</b> upv.h:26</div></div>
+<div class="ttc" id="astructupv__init__cmd___html_a7adeb1e524abb35b6ef5bdb745acddef"><div class="ttname"><a href="structupv__init__cmd__.html#a7adeb1e524abb35b6ef5bdb745acddef">upv_init_cmd_::listAddr</a></div><div class="ttdeci">uint8_t listAddr[NUM_MAX_ADDR_UPV]</div><div class="ttdoc">список адресов</div><div class="ttdef"><b>Definition:</b> upv.h:24</div></div>
+<div class="ttc" id="astructupv__write__cmd___html_ae9435f097e50a39ee757e9b5f894addd"><div class="ttname"><a href="structupv__write__cmd__.html#ae9435f097e50a39ee757e9b5f894addd">upv_write_cmd_::value</a></div><div class="ttdeci">uint32_t value</div><div class="ttdoc">значение</div><div class="ttdef"><b>Definition:</b> upv.h:14</div></div>
+<div class="ttc" id="astructupv__write__cmd___html_ab98f262fc6c718c31ea725223fec0f98"><div class="ttname"><a href="structupv__write__cmd__.html#ab98f262fc6c718c31ea725223fec0f98">upv_write_cmd_::offsetAddr</a></div><div class="ttdeci">uint64_t offsetAddr</div><div class="ttdoc">смещение</div><div class="ttdef"><b>Definition:</b> upv.h:12</div></div>
+<div class="ttc" id="astructupv__init__cmd___html_a2187a43c41960a5e02c6dc319b3551d5"><div class="ttname"><a href="structupv__init__cmd__.html#a2187a43c41960a5e02c6dc319b3551d5">upv_init_cmd_::freq</a></div><div class="ttdeci">uint8_t freq</div><div class="ttdoc">Cкорость передачи и пауза</div><div class="ttdef"><b>Definition:</b> upv.h:28</div></div>
+<div class="ttc" id="astructupv__write__cmd___html_a46900cc79af4d68c839d58b8d9109c51"><div class="ttname"><a href="structupv__write__cmd__.html#a46900cc79af4d68c839d58b8d9109c51">upv_write_cmd_::idA</a></div><div class="ttdeci">uint8_t idA</div><div class="ttdoc">номер адаптера</div><div class="ttdef"><b>Definition:</b> upv.h:10</div></div>
+<div class="ttc" id="astructupv__init__cmd___html"><div class="ttname"><a href="structupv__init__cmd__.html">upv_init_cmd_</a></div><div class="ttdef"><b>Definition:</b> upv.h:17</div></div>
+<div class="ttc" id="astructupv__init__cmd___html_a1ad6d8a53a292d52e7cd8027eea3ab77"><div class="ttname"><a href="structupv__init__cmd__.html#a1ad6d8a53a292d52e7cd8027eea3ab77">upv_init_cmd_::numCh</a></div><div class="ttdeci">uint8_t numCh</div><div class="ttdoc">номер канала</div><div class="ttdef"><b>Definition:</b> upv.h:20</div></div>
+<div class="ttc" id="astructupv__write__cmd___html"><div class="ttname"><a href="structupv__write__cmd__.html">upv_write_cmd_</a></div><div class="ttdef"><b>Definition:</b> upv.h:8</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
+</small></address>
+</body>
+</html>

@@ -27,20 +27,23 @@
 
 #include "dac16.h"
 
-
-struct dacDrvInst {
-	uint8_t    ready[DAC16_MAX_ADAPTERS];
+//! Структура с описанием устройств
+struct dacDrvInst 
+{
+    //! список признаков готовности устройств
+    uint8_t    ready[DAC16_MAX_ADAPTERS];
+    //! список базовых адресов
     uint16_t   baseAddr[DAC16_MAX_ADAPTERS];
+    //! кол-во базовых адресов в списке
     uint8_t    numBaseAddr;
 }*pInst;
 int server_coid;
 
-/*
-* Overrides what happens when resource manager is written to
+/*!
+ * Overrides what happens when resource manager is written to
 */
 int io_write(resmgr_context_t *ctp, io_write_t *msg, RESMGR_OCB_T *ocb)
 {
-    //int nb = 0;
 
     dac16_write_cmd cmd;
 
@@ -76,7 +79,7 @@ int io_write(resmgr_context_t *ctp, io_write_t *msg, RESMGR_OCB_T *ocb)
     return _RESMGR_NPARTS(1);
 }
 
-/*
+/*!
 * Overrides what happens when resource manager is opened
 * - Creates and opens device
 */
@@ -87,8 +90,10 @@ int io_open(resmgr_context_t *ctp, io_open_t *msg, RESMGR_HANDLE_T *handle, void
         }
         return (iofunc_open_default (ctp, msg, handle, extra));
 }
+
+//! Путь к директории с файлами прошивки
 #define FOLDER_FIRMWARE "/home/conf/drv/"
-//! загрузка прошивок
+//! Загрузка прошивок
 void loadCard(std::string name, uint32_t init, uint32_t load)
 {
         int fd;
@@ -125,6 +130,7 @@ void loadCard(std::string name, uint32_t init, uint32_t load)
         close(fd);
 
 }
+//! Проверка адаптера
 bool checkCard(uint16_t baseAddr,uint8_t offset, uint16_t mask,uint16_t code)
 {
     uint16_t curCode = 0x0;
@@ -136,6 +142,8 @@ bool checkCard(uint16_t baseAddr,uint8_t offset, uint16_t mask,uint16_t code)
 
     return false;
 }
+
+//! Обработка запросов ввода/вывода
 int io_devctl(resmgr_context_t *ctp, io_devctl_t *msg, iofunc_ocb_t *ocb)
 {
     //int i=0;
@@ -173,12 +181,13 @@ int io_devctl(resmgr_context_t *ctp, io_devctl_t *msg, iofunc_ocb_t *ocb)
     //errnoSet(ENOTTY);
     return ENOTTY;
 
-}
+//! Смещение внути устройства
 int io_lseek(resmgr_context_t *ctp, io_lseek_t *msg, iofunc_ocb_t *ocb)
 {
     ocb->offset = msg->i.offset;
     return _RESMGR_STATUS(ctp,0);
 }
+//! Основная точка входа
 int main(int argc, char *argv[])
 {
     dispatch_t* dpp;
