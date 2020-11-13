@@ -43,8 +43,9 @@ struct trrel48DrvInst {
     int currentState[MAX_TRREL48 * REL48_REGS];
 }*pInst;
 int server_coid;
-/*
-* Overrides what happens when resource manager is read from
+
+/*!
+ * Overrides what happens when resource manager is written to
 */
 int io_read(resmgr_context_t *ctp, io_read_t *msg, RESMGR_OCB_T *ocb)
 {
@@ -86,6 +87,8 @@ int io_read(resmgr_context_t *ctp, io_read_t *msg, RESMGR_OCB_T *ocb)
 
         return(_RESMGR_NPARTS(1));
 }
+
+//! Проверка адаптера
 bool checkCard(uint16_t baseAddr,uint8_t offset, uint16_t mask,uint16_t code)
 {
     uint16_t curCode=0x0;
@@ -151,7 +154,7 @@ int io_write(resmgr_context_t *ctp, io_write_t *msg, RESMGR_OCB_T *ocb) {
         return _RESMGR_NPARTS(1);
 }
 
-/*
+/*!
 * Overrides what happens when resource manager is opened
 * - Creates and opens device
 */
@@ -162,6 +165,7 @@ int io_open(resmgr_context_t *ctp, io_open_t *msg, RESMGR_HANDLE_T *handle, void
         }
         return (iofunc_open_default (ctp, msg, handle, extra));
 }
+//! Обработка запросов ввода/вывода
 int io_devctl(resmgr_context_t *ctp, io_devctl_t *msg, iofunc_ocb_t *ocb)
 {
    // int i=0;
@@ -199,13 +203,14 @@ int io_devctl(resmgr_context_t *ctp, io_devctl_t *msg, iofunc_ocb_t *ocb)
     }
     //errnoSet(ENOTTY);
     return ENOTTY;
-
 }
+//! Смещение внути устройства
 int io_lseek(resmgr_context_t *ctp, io_lseek_t *msg, iofunc_ocb_t *ocb)
 {
     ocb->offset = msg->i.offset;
     return _RESMGR_STATUS(ctp,0);
 }
+//! Основная точка входа
 int main(int argc, char *argv[])
 {
     dispatch_t* dpp;
