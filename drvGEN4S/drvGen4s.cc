@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvGEN4S.cc
+// Name        : drvGen4s.cc
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter GEN4S 
+// Description : Driver for ISA adapter GEN4S 
 //============================================================================
 
 #include <cstdlib>
@@ -27,19 +27,23 @@
 
 #include "gen4s.h"
 
-struct gen4sDrvInst {
-	uint8_t    ready[GEN4S_MAX_ADAPTERS];
-	uint16_t   baseAddr[GEN4S_MAX_ADAPTERS];
+//! Структура с описанием устройств
+struct gen4sDrvInst
+{
+    //! список признаков готовности устройств
+    uint8_t    ready[GEN4S_MAX_ADAPTERS];
+    //! список базовых адресов
+    uint16_t   baseAddr[GEN4S_MAX_ADAPTERS];
+    //! кол-во базовых адресов в списке
     uint8_t    numBaseAddr;
 }*pInst;
 int server_coid;
 
-/*
-* Overrides what happens when resource manager is written to
+/*!
+ * Overrides what happens when resource manager is written to
 */
 int io_write(resmgr_context_t *ctp, io_write_t *msg, RESMGR_OCB_T *ocb)
 {
-    int nb = 0;
 
     gen4s_write_cmd cmd;
 
@@ -68,7 +72,7 @@ int io_write(resmgr_context_t *ctp, io_write_t *msg, RESMGR_OCB_T *ocb)
 
     uint8_t maxChSpec = GEN4S_CHANNELS_PER_BOARD_U;
     if(cmd.mode == 1)
-    	maxChSpec = GEN4S_CHANNELS_PER_BOARD_NU;
+        maxChSpec = GEN4S_CHANNELS_PER_BOARD_NU;
 
     uint8_t numA   = cmd.numCh / maxChSpec;
     uint16_t numCh = cmd.numCh - numA * maxChSpec;
@@ -78,25 +82,25 @@ int io_write(resmgr_context_t *ctp, io_write_t *msg, RESMGR_OCB_T *ocb)
     {
     if(cmd.mode == 1)
     {
-    	uint16_t regFreqMajor = (int)((0.16384 * cmd.freq));
-    	out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_FREQ_DIV_MAJOR),  regCh | regFreqMajor);
+        uint16_t regFreqMajor = (int)((0.16384 * cmd.freq));
+        out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_FREQ_DIV_MAJOR),  regCh | regFreqMajor);
 
-    	float frac = (0.16384 * cmd.freq) - regFreqMajor;
-    	uint16_t regFreqMinor = (int)((16384 / (0.16384 * cmd.freq)) * frac);
-    	out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_FREQ_DIV_MINOR),  regCh | regFreqMinor);
+        float frac = (0.16384 * cmd.freq) - regFreqMajor;
+        uint16_t regFreqMinor = (int)((16384 / (0.16384 * cmd.freq)) * frac);
+        out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_FREQ_DIV_MINOR),  regCh | regFreqMinor);
     }else
     {
-    	out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_U),  regCh | (0x0 << 12)| cmd.u1);
-    	out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_U),  regCh | (0x1 << 12)| cmd.u2);
-    	out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_U),  regCh | (0x2 << 12)| cmd.u3);
+        out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_U),  regCh | (0x0 << 12)| cmd.u1);
+        out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_U),  regCh | (0x1 << 12)| cmd.u2);
+        out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_U),  regCh | (0x2 << 12)| cmd.u3);
 
-    	uint16_t regFreqMajor = (int)((0.0196608 * cmd.freq));
-    	out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_DIV_MAJOR),  regCh | regFreqMajor);
+        uint16_t regFreqMajor = (int)((0.0196608 * cmd.freq));
+        out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_DIV_MAJOR),  regCh | regFreqMajor);
 
-    	float frac = (0.0196608 * cmd.freq) - regFreqMajor;
-    	uint16_t regFreqMinor = (int)((2048 / (0.0196608 * cmd.freq)) * frac);
+        float frac = (0.0196608 * cmd.freq) - regFreqMajor;
+        uint16_t regFreqMinor = (int)((2048 / (0.0196608 * cmd.freq)) * frac);
 
-    	out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_DIV_MINOR),  regCh | regFreqMinor);
+        out16((uintptr_t)(pInst->baseAddr[numA] + GEN4S_OFFSET_DIV_MINOR),  regCh | regFreqMinor);
 
     }
     }
@@ -105,7 +109,7 @@ int io_write(resmgr_context_t *ctp, io_write_t *msg, RESMGR_OCB_T *ocb)
     return _RESMGR_NPARTS(1);
 }
 
-/*
+/*!
 * Overrides what happens when resource manager is opened
 * - Creates and opens device
 */
@@ -116,8 +120,10 @@ int io_open(resmgr_context_t *ctp, io_open_t *msg, RESMGR_HANDLE_T *handle, void
         }
         return (iofunc_open_default (ctp, msg, handle, extra));
 }
+
+//! Путь к директории с файлами прошивки
 #define FOLDER_FIRMWARE "/home/conf/drv/"
-//! загрузка прошивок
+//! Загрузка прошивок
 void loadCard(std::string name, uint32_t init, uint32_t load)
 {
         int fd;
@@ -147,8 +153,8 @@ void loadCard(std::string name, uint32_t init, uint32_t load)
 
             for(int shift=7;shift<=14;shift++)
             {
-            	uint32_t val = buffer[0];//<<shift;
-            	out16((uintptr_t)load,val << shift);
+                uint32_t val = buffer[0];//<<shift;
+                out16((uintptr_t)load,val << shift);
             }
             if(bytesRead <0)
             {
@@ -159,6 +165,7 @@ void loadCard(std::string name, uint32_t init, uint32_t load)
         close(fd);
 
 }
+//! Проверка адаптера
 bool checkCard(uint16_t baseAddr,uint8_t offset, uint16_t mask,uint16_t code)
 {
     uint16_t curCode = 0x0;
@@ -170,18 +177,20 @@ bool checkCard(uint16_t baseAddr,uint8_t offset, uint16_t mask,uint16_t code)
 
     return false;
 }
+
+//! Обработка запросов ввода/вывода
 int io_devctl(resmgr_context_t *ctp, io_devctl_t *msg, iofunc_ocb_t *ocb)
 {
     //int i=0;
     if(msg->i.dcmd == GEN4S_IO_ADD_BASE_ADR)
     {
-    	uint16_t baseAddr = *((uint16_t*)_DEVCTL_DATA (msg->i));
-    	for(int i = 0; i < pInst->numBaseAddr; i++)
-    	{
-    	    if(pInst->baseAddr[i] == baseAddr)
-    	    return EOK;
-    	}
-    	pInst->baseAddr[pInst->numBaseAddr] = baseAddr;
+        uint16_t baseAddr = *((uint16_t*)_DEVCTL_DATA (msg->i));
+        for(int i = 0; i < pInst->numBaseAddr; i++)
+        {
+            if(pInst->baseAddr[i] == baseAddr)
+            return EOK;
+        }
+        pInst->baseAddr[pInst->numBaseAddr] = baseAddr;
 
 
         int res = mmap_device_io(GEN4S_REG_WINDOW,pInst->baseAddr[pInst->numBaseAddr]);
@@ -191,46 +200,42 @@ int io_devctl(resmgr_context_t *ctp, io_devctl_t *msg, iofunc_ocb_t *ocb)
             printf("GEN4S - io_devctl : Can`t map io-port device \n");
             return ENOTTY;
         }
-//        for (i = 0; i < REL48_REGS; i++)
-//        {
-//         	pInst->currentState[i] = in16((uintptr_t)(pInst->baseAddr[pInst->numBaseAddr] + 2 * i));
-//        }
-        pInst->numBaseAddr++;
+       pInst->numBaseAddr++;
         return EOK;
     }else if(msg->i.dcmd == GEN4S_IO_BURN_FLASH)
     {
-    	for(int j = 0; j < pInst->numBaseAddr; j++)
-    	{
-    		bool ready = checkCard(pInst->baseAddr[j],GEN4S_OFFSET_CHECK,GEN4S_MASK_CHECK,GEN4S_CODE_CHECK);
+        for(int j = 0; j < pInst->numBaseAddr; j++)
+        {
+            bool ready = checkCard(pInst->baseAddr[j],GEN4S_OFFSET_CHECK,GEN4S_MASK_CHECK,GEN4S_CODE_CHECK);
 
-    		pInst->ready[j] = ready;
-    		if(ready == true)
-    		{
-    			std::cout<<"GEN4S is already"<<std::endl;
-    			continue;
-    		}
+            pInst->ready[j] = ready;
+            if(ready == true)
+            {
+                std::cout<<"GEN4S is already"<<std::endl;
+                continue;
+            }
 
-    		loadCard("gen4.bit",pInst->baseAddr[j],pInst->baseAddr[j] + GEN4S_BURN);
-    		ready = checkCard(pInst->baseAddr[j],GEN4S_OFFSET_CHECK,GEN4S_MASK_CHECK,GEN4S_CODE_CHECK);
-    		pInst->ready[j] = ready;
+            loadCard("gen4.bit",pInst->baseAddr[j],pInst->baseAddr[j] + GEN4S_BURN);
+            ready = checkCard(pInst->baseAddr[j],GEN4S_OFFSET_CHECK,GEN4S_MASK_CHECK,GEN4S_CODE_CHECK);
+            pInst->ready[j] = ready;
 
-    		if(ready == true)
-    			std::cout<<"GEN4S is ready"<<std::endl;
-    		else
-    			std::cout<<"GEN4S is fail"<<std::endl;
-
-    	}
-    	return EOK;
+            if(ready == true)
+                std::cout<<"GEN4S is ready"<<std::endl;
+            else
+                std::cout<<"GEN4S is fail"<<std::endl;
+        }
+        return EOK;
     }
-    //errnoSet(ENOTTY);
     return ENOTTY;
-
 }
+
+//! Смещение внути устройства
 int io_lseek(resmgr_context_t *ctp, io_lseek_t *msg, iofunc_ocb_t *ocb)
 {
     ocb->offset = msg->i.offset;
     return _RESMGR_STATUS(ctp,0);
 }
+//! Основная точка входа
 int main(int argc, char *argv[])
 {
     dispatch_t* dpp;
@@ -263,7 +268,7 @@ int main(int argc, char *argv[])
 
     id = resmgr_attach(dpp, NULL, GEN4S_DEVPATH, _FTYPE_ANY, 0, &connect_funcs, &io_funcs, &ioattr);
     if(id == -1)
-      	std::cout<<"Can`t attach to GEN4S device"<<std::endl;
+        std::cout<<"Can`t attach to GEN4S device"<<std::endl;
     ctp = dispatch_context_alloc(dpp);
     while(1) {
             ctp = dispatch_block(ctp);

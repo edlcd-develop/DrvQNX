@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : drvGEN4S.cc
+// Name        : upv.cc
 // Author      : Gurin Fedor
 // Version     : 0.1
 // Copyright   : 
-// Description : Driver for ISA apapter UPV KL 
+// Description : Driver for PCI-e (1.0) adapter UPV KL 
 //============================================================================
 
 #include <cstdlib>
@@ -256,6 +256,7 @@ int main(int argc, char *argv[])
 
       	  devUpvKl.numAddr ++;
       }
+	  // устройство не загрузилось, требуется выполнить перезагрузку
       if(devUpvKl.numAddr == 0)
     	  system("shutdown -S reboot");
       ctp = dispatch_context_alloc(dpp);
