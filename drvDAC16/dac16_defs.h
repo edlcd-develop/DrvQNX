@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _DAC16_DEFS_H
 #define _DAC16_DEFS_H
 
