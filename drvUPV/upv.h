@@ -6,12 +6,12 @@
 //! Максимальное кол-во адресов Arinc429 УПВ КЛ
 #define NUM_MAX_ADDR_UPV 255
 typedef struct upv_write_cmd_ {
-	//! номер адаптера
-	uint8_t  idA;
-	//! смещение
+    //! номер адаптера
+    uint8_t  idA;
+    //! смещение
     uint64_t offsetAddr;
     //! значение
-	uint32_t value;
+    uint32_t value;
 }upv_write_cmd;
     
 typedef struct upv_init_cmd_ {
